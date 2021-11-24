@@ -11,22 +11,22 @@ public class Metodos {
         return jugadas[(int) (Math.random() * jugadas.length)];
     }
 
-    public static int ganadorRonda(String jugador, String ai) {//Coge dos Strings y calcula el ganador de la ronda
+    public static int ganadorRonda(Jugada jugador, Jugada ai) {//Coge dos Strings y calcula el ganador de la ronda
         if (jugador.equals(ai)) {
             return 2;
         }
         switch (jugador) {
-            case "Piedra":
-                if (ai.equals("Papel"))
+            case PIEDRA:
+                if (ai.equals(Jugada.PAPEL))
                     return 1;
                 else return 0;
-            case "Tijeras":
-                if (ai.equals("Piedra"))
+            case TIJERAS:
+                if (ai.equals(Jugada.PIEDRA))
                     return 1;
                 else return 0;
 
-            case "Papel":
-                if (ai.equals("Tijeras"))
+            case PAPEL:
+                if (ai.equals(Jugada.TIJERAS))
                     return 1;
                 else return 0;
         }
@@ -41,7 +41,7 @@ public class Metodos {
         };
     }
 
-    public static String muestraEstadistica(String[] array) {//Muestra estadisticas en un String
+    public static String muestraEstadistica(Jugada[] array) {//Muestra estadisticas en un String
         int contador1 = 0;
         int contadorPiedra = 0, contadorPapel = 0, contadorTijeras = 0;
         for (int i = 0; i < array.length; i += 2) {//Cuenta las veces que gana el ususario
@@ -50,14 +50,15 @@ public class Metodos {
                 contador1++;
             }
         }
-        for (String s : array) {//Cuenta las Jugadas hechas durante el Juego
+        for (Jugada s : array) {//Cuenta las Jugadas hechas durante el Juego
             switch (s) {
-                case "Piedra" -> contadorPiedra++;
-                case "Papel" -> contadorPapel++;
-                case "Tijeras" -> contadorTijeras++;
+                case PIEDRA -> contadorPiedra++;
+                case PAPEL -> contadorPapel++;
+                case TIJERAS -> contadorTijeras++;
             }
         }
-        return ("Porcentaje partidas ganadas: " + (contador1 * 20) + "%." + "Porcentaje Piedras jugadas" + (contadorPiedra * 10) + "%." + "Porcentaje Papel jugados" + (contadorPapel * 10) + "%." + "Porcentaje Tijeras jugadas" + (contadorTijeras * 10) + "%.");
+        return ("Porcentaje partidas ganadas: " + (contador1 * 20) + "%." + "Porcentaje Piedras jugadas" + (contadorPiedra * 10) + "%." +
+                "Porcentaje Papel jugados" + (contadorPapel * 10) + "%." + "Porcentaje Tijeras jugadas" + (contadorTijeras * 10) + "%.");
     }
 
 }
