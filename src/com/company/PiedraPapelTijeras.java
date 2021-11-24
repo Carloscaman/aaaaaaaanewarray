@@ -7,7 +7,7 @@ public class PiedraPapelTijeras {
         int rondas = 5;//contador de partidas restantes
         Scanner inputValue = new Scanner(System.in);
         Metodos.Jugada[] partidas = new Metodos.Jugada[10];
-        System.out.println("Introduce: 'p' para Piedra,'x' para Papel o 't' para Tijeras. Quedan " + rondas);
+        System.out.println("Introduce: 'p' para Piedra,'t' para Tijeras o lo que quieras para Papel. Quedan " + rondas);
         int resultado;
         for (int i = 0; i < partidas.length; i++) {//Rellena el array de partidas mientras responde al usuario por cada jugada
             partidas[i] = Metodos.jugadaUsuario(inputValue.next());//Recoge la jugada del usuario y la pasa a Piedra, Papel o Tijeras
@@ -38,7 +38,7 @@ public class PiedraPapelTijeras {
             }
             rondas--;//Cuenta atras de las rondas
             if (rondas != 0)
-                System.out.println("Introduce: 'p' para Piedra,'x' para Papel o 't' para Tijeras. Quedan " + rondas+" rondas");
+                System.out.println("Introduce: 'p' para Piedra,'t' para Tijeras o o lo que quieras para Papel. Quedan  " + rondas+" rondas");
 
         }
         String porcentages = Metodos.muestraEstadistica(partidas);//Crea un String con todos los datos de las estadísticas
